@@ -1,0 +1,66 @@
+/* ===== BASE GLOBAL ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+/* ===== BACKGROUND GLOBAL ===== */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+}
+
+body::before {
+  background-image: url("../media/hitachi-fondo.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px) brightness(0.7) saturate(0.8);
+  opacity: 0.22;
+  z-index: -2;
+}
+
+body::after {
+  background: rgba(10, 61, 102, 0.25);
+  z-index: -1;
+}
+
+/* ===== VARIABLES ===== */
+:root {
+  --siscod-blue: #2f6fa3;
+  --siscod-blue-light: #3f82b8;
+  --siscod-blue-soft: rgba(47, 111, 163, 0.15);
+  --border-dark: #1f3f5c;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+body.menu-open .page-center::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+.page-center {
+  transition:
+  filter 0.45s ease,
+  opacity 0.45s ease;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open .page-center {
+  filter: blur(1.5px);
+  opacity: 0.7;
+}
+html, body {
+  overflow-x: hidden;
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensaje Hitachi</title>
+    <link rel="stylesheet" href="../css/MsjHitachi.css" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+  </head>
+  <body>
+    <div class="page-center app">
+      <!-- LEFT PANEL -->
+      <div class="left-panel">
+        <!-- MSJ CONFIG -->
+        <div class="sidebar">
+          <div class="message-config">
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <select id="mensaje">
+                <option value="">Seleccionar mensaje</option>
+                <option value="msg1">Mensaje 1</option>
+                <option value="msg2">Mensaje 2</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input type="text" id="descripcion" />
+            </div>
+
+            <div class="form-group">
+              <label for="numeroMensaje">Número de msj</label>
+              <input type="number" id="numeroMensaje" min="1" value="1" />
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMPOS -->
+        <div class="sidebar">
+          <h3>Campos</h3>
+          <div id="fields" class="field-list">
+            <div class="field" draggable="true" data-id="lote" data-repeatable="false" > Lote </div>
+            <div class="field" draggable="true" data-id="producto" data-repeatable="false" > Producto </div>
+            <div class="field" draggable="true" data-id="marca" data-repeatable="false" > Marca </div>
+            <div class="field" draggable="true" data-id="fab" data-repeatable="false" > Fecha elaboración </div>
+            <div class="field" draggable="true" data-id="venc" data-repeatable="false" > Fecha vencimiento </div>
+            <div class="field" draggable="true" data-id="peso" data-repeatable="false" > Peso producto </div>
+            <div class="field" draggable="true" data-id="estatic" data-repeatable="true" > Campo estatico </div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT PANEL -->
+      <div class="layout-wrapper">
+        <div id="columns" class="columns"></div>
+        <div class="toolbar">
+          <button id="removeCol">−</button>
+          <span id="colCount">Columnas: 1</span>
+          <button id="addCol">+</button>
+          <button class="save">GUARDAR</button>
+        </div>
+      </div>
+    </div>
+    <div id="overlay" onclick="toggleMenu()"></div>
+    <script src="../js/MsjHitachi.js"></script>
+    <script src="../js/navbar.js"></script>
+  </body>
+</html>

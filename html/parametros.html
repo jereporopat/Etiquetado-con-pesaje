@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parámetros</title>
+    <link rel="stylesheet" href="../css/Parametros.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+<body>
+<div class="page-center parametros-wrapper">
+  <div class="parametros-card">
+
+    <h2 class="parametros-title">Parámetros</h2>
+
+    <div class="parametro-row">
+      <span class="label">Factor de velocidad</span>
+      <input type="number" min="-100" max="100">
+      <span class="unit">%</span>
+      <span class="info-icon" data-info="Ajusta la velocidad de la cinta transportadora en relación al valor nominal">?</span>
+    </div>
+
+    <div class="parametro-row">
+      <span class="label">Merma de producto</span>
+      <input type="number" min="-100" max="0">
+      <span class="unit">%</span>
+      <span class="info-icon" data-info="Porcentaje de corrección aplicado al peso del producto para compensar pérdidas o variaciones">?</span>
+    </div>
+
+    <div class="parametro-row">
+      <span class="label">Distancia frenado</span>
+      <input type="number" min="0" max="70">
+      <span class="unit">cm</span>
+      <span class="info-icon" data-info="Distancia de frenado desde el sensor de balanza para obtener un peso estable">?</span>
+    </div>
+
+    <div class="parametro-row">
+      <span class="label">Separador</span>
+      <input type="number" min="0">
+      <span class="unit">cm</span>
+      <span class="info-icon" data-info="Distancia mínima entre productos consecutivos sobre la cinta transportadora">?</span>
+    </div>
+
+    <div class="parametro-row">
+      <span class="label">Tamaño max del queso</span>
+      <input type="number" min="1">
+      <span class="unit">cm</span>
+      <span class="info-icon" data-info="Longitud máxima permitida del producto para un procesamiento correcto">?</span>
+    </div>
+
+    <div class="parametros-footer">
+      <button class="btn-guardar">Guardar</button>
+    </div>
+
+  </div>
+</div>
+<div id="overlay" onclick="toggleMenu()"></div>
+<script src="../js/Parametros.js"></script>
+<script src="../js/navbar.js"></script>
+
+</body>
+</html>

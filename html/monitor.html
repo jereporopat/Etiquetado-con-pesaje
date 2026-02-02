@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Panel de Control</title>
+        <link rel="stylesheet" href="../css/Monitor.css">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+    </head>
+
+    <body>
+        <!-- CONTENEDOR PRINCIPAL -->
+        <div class="page-center page-container">
+
+            <!-- HEADER -->
+            <header class="header">
+                <div class="estado error">
+                    Estado: <span id="estado">ERRORRRRRR</span>
+                </div>
+            </header>
+
+            <!-- CONTENIDO -->
+            <main class="content">
+
+                <!-- CONFIGURACIÓN -->
+                <section class="card">
+                    <h2>Lote</h2>
+
+                    <div class="form-grid">
+                        <label>Numero de lote</label><input type="text" id="lote" disabled>
+                        <label>Código de lote</label><input type="text" id="codigoLote">
+
+                        <label>Producto</label>
+                        <select id="productoId"><option>-- Seleccione --</option></select>
+
+                        <label>Marca</label>
+                        <select id="marcaId"><option>-- Seleccione --</option></select>
+
+                        <label>Elaboración</label><input type="date" id="fecha">
+                        <label>Vencimiento</label><input type="date" id="vencimiento">
+
+                        <label>Días Vencimiento</label><input type="number" id="diasVencimiento" min="0">
+                    </div>
+
+                    <!-- HITACHI + ETIQUETAS -->
+                    <div class="etiquetas-section">
+
+                        <h3 class="subtitulo">HITACHI</h3>
+                        <div class="row">
+                            <label>Mensaje</label>
+                            <select id="mensajeHitachiId"><option>-- Seleccione --</option></select>
+                            <label class="check">
+                                <input type="checkbox" id="imprimeMensajeHitachi" checked="checked"> Imprime
+                            </label>
+                        </div>
+
+                        <h3 class="subtitulo">ETIQUETAS</h3>
+
+                        <div class="row">
+                            <label>Productos por caja</label>
+                            <div class="stepper">
+                                <input type="number" value="1" id="productosPorCaja" min="1">
+                                <select id="etiquetaCajaId">
+                                    <option value="">-</option>
+                                </select>
+                            </div>
+                            <label class="check">
+                                <input type="checkbox" id="imprimeEtiquetaCaja" checked="checked"> Imprime
+                            </label>
+                        </div>
+
+                        <div class="row">
+                            <label>Cajas por pallet</label>
+                            <div class="stepper">
+                                <input type="number" value="1" id="cajasPorPallet" min="1">
+                                <select id="etiquetaPalletId">
+                                    <option value="">-</option>
+                                </select>
+                            </div>
+                            <label class="check">
+                                <input type="checkbox" id="imprimeEtiquetaPallet" checked="checked"> Imprime
+                            </label>
+                        </div>
+
+                        <div class="row">
+                            <label>Utilizar balanza</label>
+                            <input type="checkbox" id="utilizaBalanza" checked="checked">
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- INDICADORES -->
+                <section class="card indicadores">
+                    <div class="peso-actual">
+                        <span id="pesoGrande">0.000</span>
+                    </div>
+
+                    <div class="indicador">
+                        <label>Peso actual en balanza</label>
+                        <input type="text" id="ultimoPesaje" disabled>
+                    </div>
+
+                    <div class="indicador">
+                        <label>Velocidad de Cinta [m/min]</label>
+                        <input type="text" id="velocidadDeCinta" disabled>
+                    </div>
+
+                    <div class="indicador">
+                        <label>Productos por minuto</label>
+                        <input type="text" id="productosPorMinuto" disabled>
+                    </div>
+
+                    <div class="indicador">
+                        <label>Productos procesados - Lote</label>
+                        <input type="text" id="productosProcesados" disabled>
+                    </div>
+                    
+                    <div class="indicador">
+                        <label>Productos procesados - Pallet</label>
+                        <input type="text" id="productosProcesados" disabled>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- BOTONERA -->
+
+            <footer class="acciones">
+                <button class="btn green" id="btnStart">Iniciar Lote</button>
+                <button class="btn red" id="btnStop">Terminar lote</button>
+                <button class="btn green" id="btnResume">Reanudar</button>
+                <button class="btn blue" id="btnPause">Pausar</button>
+                <button class="btn yellow" id="btnReset">Reiniciar balanza</button>
+            </footer>
+
+        </div>
+        <div id="overlay" onclick="toggleMenu()"></div> 
+        <script type="module" src="../js/Monitor.js"></script>
+        <script src="../js/navbar.js"></script>
+    </body>
+</html>

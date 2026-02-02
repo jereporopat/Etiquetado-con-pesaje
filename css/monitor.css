@@ -1,0 +1,200 @@
+/* ===== LAYOUT ===== */
+.page-container {
+  max-width: 1200px;
+  padding: 10px 0px 20px 100px;
+}
+
+.header { margin-bottom: 20px; }
+
+.page-title {
+  margin: 0;
+  font-size: 26px;
+  color: #0a3d66;
+}
+
+.estado {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.estado.error { color: #d32f2f; }
+
+/* ===== CONTENIDO ===== */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+  color: #0a3d66;
+  
+}
+
+/* ===== FORMULARIO ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px 12px;
+}
+
+label { font-size: 18px; }
+
+input,
+select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  font-size: 15.4px;
+}
+
+/* ===== ETIQUETAS ===== */
+.subtitulo {
+  margin: 12px 0 8px;
+  font-size: 15.4px;
+  font-weight: bold;
+  color: #444;
+}
+
+.etiquetas-section .row {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14.3px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+}
+
+.stepper input {
+  width: 80px;
+  text-align: center;
+  margin: 0 4px;
+}
+
+.stepper button {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  background: #eee;
+  cursor: pointer;
+}
+
+.stepper button:hover {
+  background: #dcdcdc;
+}
+
+/* ===== INDICADORES ===== */
+.peso-actual {
+  font-size: 72px;
+  color: #d32f2f;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 3px solid #d32f2f;
+  border-radius: 8px;
+}
+
+.indicador {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+  font-size: 14.3px;
+  font-weight: 700;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  font-size: 17px;
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+
+.btn.guardar   { background: #0277bd; }
+.btn.green { background: #2ecc71; }
+.btn.blue    { background: #5c8df6; }
+.btn.yellow { background: #f1c40f; }
+.btn.red   { background: #e74c3c; }
+.btn.orange  { background: #e67e22; }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== BOTONERA ===== */
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .content { grid-template-columns: 1fr; }
+
+  .acciones {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Overlay*/
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 998;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open #overlay {
+  opacity: 0;
+  pointer-events: auto;
+  /*dejamos libre la navbar */
+  left: 260px;
+  width: calc(100vw - 260px);
+}

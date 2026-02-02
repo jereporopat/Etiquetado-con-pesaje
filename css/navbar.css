@@ -1,0 +1,87 @@
+/* ===== NAVBAR ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  padding: 30px 20px;
+  background: #0b3c5d;
+  color: #fff;
+  transition: left 0.3s ease;
+  z-index: 150;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu h3 {
+  margin-bottom: 40px;
+}
+
+.side-menu a {
+  display: block;
+  padding: 12px 0;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-size: 15px;
+}
+
+.side-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===== LOGO ===== */
+.logo-siscod {
+  height: 36px;
+  margin-left: 10px;
+}
+
+/* ===== HANDLE ===== */
+.menu-handle {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 140px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-handle:hover {
+  height: 200px;
+  background: white;
+  transition: 0.2s;
+}
+/* ===== BOTÓN CERRAR ===== */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+.close-btn:hover {
+  transform: translateX(-2px);
+}
+
+/* ===== CUANDO EL MENÚ ESTÁ ABIERTO ===== */
+.side-menu.open .menu-handle {
+  display: none;
+}
+
+.side-menu.open .close-btn {
+  display: block;
+}
+.side-menu.open {
+  box-shadow: 6px 0 22px rgba(0,0,0,0.45);
+}

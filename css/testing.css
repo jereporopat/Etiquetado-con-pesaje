@@ -1,0 +1,140 @@
+.panel {
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  padding: 24px;
+  width: 440px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.panel h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #0b3c5d;
+  font-size: 18px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  border: 3px solid #000;
+  border-radius: 24px;
+  padding: 16px;
+  height: 160px;
+  background: #f5f7fa;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+button.card {
+  cursor: pointer;
+  border: 3px solid #000;
+}
+/* Hover */
+.input-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Activo (presionado) */
+.input-card.active {
+  border-color: #00ff80;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.switch {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: red;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #2ecc71;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.panels-container {
+  min-height: 100vh;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+}
+
+.side-menu.open ~ .panels-container {
+  /*margin-left: 360px;*/
+  transition: margin-left 0.3s ease;
+}
+
+.card-title {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+/* Overlay*/
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 998;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open #overlay {
+  opacity: 0;
+  pointer-events: auto;
+  /*dejamos libre la navbar */
+  left: 260px;
+  width: calc(100vw - 260px);
+}

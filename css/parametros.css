@@ -1,0 +1,159 @@
+
+.parametros-wrapper{
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 120px;
+}
+body.menu-open .side-menu {
+  box-shadow: 6px 0 20px rgba(0,0,0,0.4);
+}
+
+
+/* Card estilo sistema */
+.parametros-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  max-width: 520px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Título */
+.parametros-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f3b57;
+}
+
+/* Fila */
+.parametro-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 40px 30px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Label izquierdo */
+.label {
+  font-size: 15.5px;
+  color: #333;
+}
+
+/* Input */
+.parametro-row input {
+  height: 36px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #b9b9b9;
+  font-size: 14px;
+}
+.parametro-row input:focus {
+  outline: none;
+  border-color: #1f7ae0;
+  box-shadow: 0 0 0 2px rgba(31,122,224,0.15);
+}
+/* Unidad */
+.unit {
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Ícono info */
+.info-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #666;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  color: #444;
+  user-select: none;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: #1f3b57;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  max-width: 220px;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+.parametros-footer {
+  margin-top: 20px;
+}
+
+/* Botón guardar */
+.btn-guardar {
+  width: 100%;
+  background: linear-gradient(135deg, #2f6fa3, #3f82b8);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-guardar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(47,111,163,0.35);
+}
+
+#btnGuardar:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(47,111,163,0.25);
+}
+
+body.menu-open .app,
+body.menu-open main {
+  pointer-events: none;
+  user-select: none;
+}
+
+body.menu-open #sideMenu {
+  pointer-events: auto;
+}
+/* Overlay*/
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 998;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open #overlay {
+  opacity: 0;
+  pointer-events: auto;
+  /*dejamos libre la navbar */
+  left: 260px;
+  width: calc(100vw - 260px);
+}
+

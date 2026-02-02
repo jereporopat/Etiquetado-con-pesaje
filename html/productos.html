@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ABM Productos</title>
+    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+
+<body>
+
+<div class="page-center form-container">
+    <h1>ABM de Productos</h1>
+    <div class="form-row">
+        <label>Producto</label>
+        <select id="productoId">
+            <option value="">Seleccione...</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Código</label>
+        <input type="text" id="codigo">
+    </div>
+
+    <div class="form-row">
+        <label>Nombre</label>
+        <input type="text" id="nombre">
+    </div>
+
+    <div class="form-row">
+        <label>Marca</label>
+        <select id="marca">
+            <option value="">Seleccione...</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label>Mensaje Hitachi</label>
+        <select id="mensajeHitachi">
+            <option value="">Seleccione...</option>
+        </select>
+    </div>
+
+    <div class="form-row chk-row">
+        <label>Habilitado</label>
+        <input type="checkbox" id="habilitado">
+    </div>
+
+    <button id="btnGuardar">Guardar</button>
+
+</div>
+<div id="overlay" onclick="toggleMenu()"></div>
+<script type="module" src="../js/productos.js"></script>
+<script src="../js/navbar.js"></script>
+</body>
+</html>

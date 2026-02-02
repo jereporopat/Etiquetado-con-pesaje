@@ -1,0 +1,108 @@
+/* ==== CONTENEDOR PRINCIPAL ==== */
+.form-container {
+    max-width: 420px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+}
+
+/* ==== TITULO ==== */
+.form-container h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ==== ETIQUETAS Y CAMPOS ==== */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.input-text:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* ==== CHECKBOX ==== */
+.checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-line label {
+    font-size: 15px;
+}
+
+/* ==== BOTON GUARDAR ==== */
+.button-save {
+    width: 100%;
+    background: linear-gradient(135deg, #2f6fa3, #3f82b8);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.button-save:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(47,111,163,0.35);
+}
+.button-save:active{
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(47,111,163,0.25);
+}
+/* Overlay*/
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 998;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open #overlay {
+  opacity: 0;
+  pointer-events: auto;
+  /*dejamos libre la navbar */
+  left: 260px;
+  width: calc(100vw - 260px);
+}

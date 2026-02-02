@@ -1,0 +1,102 @@
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0b3c5d;
+    letter-spacing: 0.5px;
+}
+
+.form-container {
+  background: #fff;
+  width: 420px;
+  margin: 20px auto 0;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.form-row {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+} 
+
+.form-row label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+  padding: 9px 10px;
+  font-size: 14px;
+  border: 1px solid #bfcad4;
+  border-radius: 6px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2f6fa3;
+  box-shadow: 0 0 0 2px rgba(47,111,163,0.2);
+}
+.chk-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.chk-row label {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+#btnGuardar {
+  width: 100%;
+  background: linear-gradient(135deg, #2f6fa3, #3f82b8);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#btnGuardar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(47,111,163,0.35);
+}
+
+#btnGuardar:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(47,111,163,0.25);
+}
+
+/* Overlay*/
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 998;
+}
+
+/* Cuando el menú está abierto */
+body.menu-open #overlay {
+  opacity: 0;
+  pointer-events: auto;
+  /*dejamos libre la navbar */
+  left: 260px;
+  width: calc(100vw - 260px);
+}
