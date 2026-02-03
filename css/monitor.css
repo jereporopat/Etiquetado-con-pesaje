@@ -1,16 +1,10 @@
 /* ===== LAYOUT ===== */
 .page-container {
   max-width: 1200px;
-  padding: 10px 0px 20px 100px;
+  padding: 10px 0px 20px 70px;
 }
 
 .header { margin-bottom: 20px; }
-
-.page-title {
-  margin: 0;
-  font-size: 26px;
-  color: #0a3d66;
-}
 
 .estado {
   font-size: 40px;
@@ -19,7 +13,6 @@
 
 .estado.error { color: #d32f2f; }
 
-/* ===== CONTENIDO ===== */
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -41,7 +34,7 @@
   
 }
 
-/* ===== FORMULARIO ===== */
+/* ===== FORMULARIOS ===== */
 .form-grid {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -60,7 +53,7 @@ select {
   font-size: 15.4px;
 }
 
-/* ===== ETIQUETAS ===== */
+/* =====  SECCIÓN ETIQUETAS / HITACHI ===== */
 .subtitulo {
   margin: 12px 0 8px;
   font-size: 15.4px;
@@ -170,31 +163,4 @@ select {
     flex-wrap: wrap;
     gap: 10px;
   }
-}
-
-/* Overlay*/
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-
-  z-index: 998;
-}
-
-/* Cuando el menú está abierto */
-body.menu-open #overlay {
-  opacity: 0;
-  pointer-events: auto;
-  /*dejamos libre la navbar */
-  left: 260px;
-  width: calc(100vw - 260px);
 }

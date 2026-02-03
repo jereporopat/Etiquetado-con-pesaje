@@ -1,10 +1,7 @@
+/*-- Layout general --*/
 body {
   padding: 30px;
   padding-left: 20px;
-}
-.message-config input,
-.message-config select {
-  width: 170px !important;
 }
 .left-panel {
   display: flex;
@@ -20,11 +17,9 @@ body {
   width: 100%;
   max-width: 1400px;
 }
-:root {
-  --siscod-blue: #2f6fa3;
-  --siscod-blue-light: #3f82b8;
-  --siscod-blue-soft: rgba(47, 111, 163, 0.15);
-  --border-dark: #1f3f5c;
+.message-config input,
+.message-config select {
+  width: 170px !important;
 }
 /* LEFT */
 .sidebar {
@@ -173,7 +168,7 @@ body {
   padding: 2px 6px;
   border-radius: 4px;
 }
-/* ===== MSJ CONFIG ===== */
+/*  MSJ CONFIG  */
 .message-config {
   display: flex;
   flex-direction: column;
@@ -204,31 +199,4 @@ body {
   font-size: 14px;
   border: 1px solid #000;
   border-radius: 4px;
-}
-
-/* Overlay*/
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(4px);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-
-  z-index: 998;
-}
-
-/* Cuando el menú está abierto */
-body.menu-open #overlay {
-  opacity: 0;
-  pointer-events: auto;
-  /*dejamos libre la navbar */
-  left: 260px;
-  width: calc(100vw - 260px);
 }
