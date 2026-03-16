@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>ABM Productos</title>
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/productos.css">
 </head>
 
 <body>
@@ -44,6 +44,16 @@
         </select>
     </div>
 
+    <div class="form-row">
+        <label>Altura [cm]</label>
+        <input type="text" id="altura">
+    </div>
+
+    <div class="form-row">
+        <label>Vida útil [dias]</label>
+        <input type="number" id="vidaUtil" min="0">
+    </div>
+
     <div class="form-row chk-row">
         <label>Habilitado</label>
         <input type="checkbox" id="habilitado">
@@ -54,7 +64,7 @@
 </div>
 <div id="overlay" onclick="toggleMenu()"></div>
 <!-- Scripts -->
-<script type="module" src="../js/productos.js"></script>
-<script src="../js/navbar.js"></script>
+<script type="module" src="js/productos.js"></script>
+<script src="js/navbar.js"></script>
 </body>
 </html>

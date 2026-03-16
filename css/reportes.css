@@ -1,0 +1,83 @@
+.reporte-container{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+width:90%;
+max-width:1200px;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+h2{
+color:#1c3c5a;
+margin-bottom:20px;
+}
+
+.acciones{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.acciones input{
+padding:8px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+background:#2c7be5;
+color:white;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#f2f4f7;
+padding:10px;
+text-align:left;
+}
+
+td{
+padding:8px;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f7f9fc;
+}
+
+.paginacion{
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.selector{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:5px;
+font-size:14px;
+}
+
+.selector select{
+padding:5px;
+border-radius:4px;
+border:1px solid #ccc;
+}

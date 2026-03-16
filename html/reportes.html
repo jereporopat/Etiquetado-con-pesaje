@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Producción</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/reportes.css">
+</head>
+
+<body>
+
+<div class="reporte-container">
+
+<h2>Reporte de Producción</h2>
+
+<div class="acciones">
+
+<input type="text" id="buscarLote" placeholder="Buscar por lote">
+
+<button onclick="filtrar()">Buscar</button>
+<button onclick="exportarExcel()">Exportar Excel</button>
+
+<div class="selector">
+Mostrar
+<select id="itemsPagina" onchange="cambiarItems()">
+<option value="5">5</option>
+<option value="10" selected>10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+</select>
+registros
+</div>
+
+</div>
+
+<table id="tablaReportes">
+
+<thead>
+<tr>
+<th>Lote</th>
+<th>Producto</th>
+<th>Marca</th>
+<th>Elaboración</th>
+<th>Vencimiento</th>
+<th>Productos</th>
+<th>Cajas</th>
+<th>Pallets</th>
+</tr>
+</thead>
+
+<tbody id="tablaBody"></tbody>
+
+</table>
+
+<div class="paginacion">
+<button onclick="anterior()">Anterior</button>
+<span id="pagina"></span>
+<button onclick="siguiente()">Siguiente</button>
+</div>
+
+</div>
+
+<div id="overlay" onclick="toggleMenu()"></div> 
+<script src="../js/navbar.js"></script>
+<script src="../js/reportes.js"></script>
+
+</body>
+</html>

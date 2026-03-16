@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Panel de Control</title>
-        <link rel="stylesheet" href="../css/Monitor.css">
+        <link rel="stylesheet" href="../css/monitor.css">
         <link rel="stylesheet" href="../css/base.css">
         <link rel="stylesheet" href="../css/navbar.css">
     </head>
@@ -15,7 +15,7 @@
             <!-- HEADER -->
             <header class="header">
                 <div class="estado error">
-                    Estado: <span id="estado">ERRORRRRRR</span>
+                    Estado: <span id="estado">NINTENDO</span>
                 </div>
             </header>
 
@@ -112,12 +112,17 @@
                     </div>
 
                     <div class="indicador">
-                        <label>Productos procesados - Lote</label>
+                        <label>Productos procesados</label>
                         <input type="text" id="productosProcesadosLote" disabled>
                     </div>
                     
                     <div class="indicador">
-                        <label>Productos procesados - Pallet</label>
+                        <label>Cajas completadas</label>
+                        <input type="text" id="productosProcesadosPallet" disabled>
+                    </div>
+
+                    <div class="indicador">
+                        <label>Pallets procesados </label>
                         <input type="text" id="productosProcesadosPallet" disabled>
                     </div>
                 </section>
@@ -136,7 +141,7 @@
 
         </div>
         <div id="overlay" onclick="toggleMenu()"></div> 
-        <script type="module" src="../js/Monitor.js"></script>
+        <script type="module" src="../js/monitor.js"></script>
         <script src="../js/navbar.js"></script>
     </body>
 </html>

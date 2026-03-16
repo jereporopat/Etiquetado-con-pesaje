@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parámetros</title>
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/Parametros.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/Parametros.css">
 </head>
 <body>
   <!-- Contenedor principal -->
@@ -17,23 +17,30 @@
 
       <div class="parametro-row">
         <span class="label">Factor de velocidad</span>
-        <input type="number" min="-100" max="100">
+        <input type="number" min="-100" max="100" id="factorVelocidad">
         <span class="unit">%</span>
-        <span class="info-icon" data-info="Ajusta la velocidad de la cinta transportadora en relación al valor nominal">?</span>
+        <span class="info-icon" data-info="Ajusta la velocidad de la cinta transportadora en relación al valor nominal (modificar en caso de cambio de polea, encoder o correa)">?</span>
       </div>
 
       <div class="parametro-row">
         <span class="label">Merma de producto</span>
-        <input type="number" min="-100" max="0">
+        <input type="number" min="-100" max="0" id="merma">
         <span class="unit">%</span>
-        <span class="info-icon" data-info="Porcentaje de corrección aplicado al peso del producto para compensar pérdidas o variaciones">?</span>
+        <span class="info-icon" data-info="Resta porcentual de corrección aplicada al peso del producto para compensar pérdidas o variaciones (aplicar en caso de querer modificar el peso sensado por la balanza)">?</span>
       </div>
 
       <div class="parametro-row">
         <span class="label">Distancia frenado</span>
-        <input type="number" min="0" max="70">
+        <input type="number" min="0" max="70" id="distanciaFrenado">
         <span class="unit">cm</span>
         <span class="info-icon" data-info="Distancia de frenado desde el sensor de balanza para obtener un peso estable">?</span>
+      </div>
+
+      <div class="parametro-row">
+        <span class="label">Separacion</span>
+        <input type="number" min="0" id="separacion">
+        <span class="unit">cm</span>
+        <span class="info-icon" data-info="Distancia de separacion entre productos">?</span>
       </div>
 
       <div class="parametros-footer">
@@ -43,7 +50,7 @@
     </div>
   </div>
   <div id="overlay" onclick="toggleMenu()"></div>
-  <script src="../js/Parametros.js"></script>
-  <script src="../js/navbar.js"></script>
+  <script src="js/Parametros.js"></script>
+  <script src="js/navbar.js"></script>
 </body>
 </html>
