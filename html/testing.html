@@ -4,83 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/testing.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/testing.css">
 
 </head>
 <body>
-    <div class="page-center panels-container">
-        <!-- ENTRADAS -->
-        <div class="panel">
-            <h3>Entradas</h3>
-            <div class="grid">
-                <button class="card input-card">
-                    <span class="card-title">Sensor separador</span>
-                    <img src="media/sensor.png" alt="Entrada 1" />
-                </button>
+    <div class="page-center">
+        <div class="estado-bar">
+        <span>Estado: <strong>NINTENDO</strong></span>
+        </div>
+        <div class="panels-container">
+            <!-- ENTRADAS -->
+            <div class="panel">
+                <h3>Entradas</h3>
+                <div class="grid">
+                    <button class="card input-card">
+                        <span class="card-title">Sensor separador</span>
+                        <img src="../media/sensor.png" alt="Entrada 1" />
+                    </button>
 
-                <button class="card input-card">
-                    <span class="card-title">Sensor entrada</span>
-                    <img src="media/sensor.png" alt="Entrada 2" />
-                </button>
+                    <button class="card input-card">
+                        <span class="card-title">Sensor entrada</span>
+                        <img src="../media/sensor.png" alt="Entrada 2" />
+                    </button>
 
-                <button class="card input-card">
-                    <span class="card-title">Sensor balanza</span>
-                    <img src="media/sensor.png" alt="Entrada 3" />
-                </button>
+                    <button class="card input-card">
+                        <span class="card-title">Sensor balanza</span>
+                        <img src="../media/sensor.png" alt="Entrada 3" />
+                    </button>
 
-                <button class="card input-card">
-                    <span class="card-title">Sensor Hitachi</span>
-                    <img src="media/sensor.png" alt="Entrada 4" />
-                </button>
+                    <button class="card input-card">
+                        <span class="card-title">Sensor Hitachi</span>
+                        <img src="../media/sensor.png" alt="Entrada 4" />
+                    </button>
+                </div>
+            </div>
+            <!-- SALIDAS -->
+            <div class="panel">
+                <h3>Salidas</h3>
+                <div class="grid">
+                    <div class="card">
+                        <span class="card-title">Semaforo</span>
+                        <img src="../media/semaforo.png" alt="Salida 1" />
+                        <label class="switch">
+                            <input type="checkbox" id="semaforo"/>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-title">Bocina</span>
+                        <img src="../media/bocina.png" alt="Salida 2" />
+                        <label class="switch">
+                            <input type="checkbox" id="buzzer"/>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-title">Cinta Separador</span>
+                        <img src="../media/separador.png" alt="Salida 3" />
+                        <label class="switch">
+                            <input type="checkbox" id="cintaSeparador"/>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-title">Cintas Transportadoras</span>
+                        <img src="../media/cintas.png" alt="Salida 4" />
+                        <label class="switch">
+                            <input type="checkbox" id="cintasTransportadoras"/>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- SALIDAS -->
-        <div class="panel">
-        <h3>Salidas</h3>
-        <div class="grid">
-            <div class="card">
-                <span class="card-title">Semaforo</span>
-                <img src="media/semaforo.png" alt="Salida 1" />
-                <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider"></span>
-                </label>
-            </div>
 
-            <div class="card">
-                <span class="card-title">Bocina</span>
-                <img src="media/bocina.png" alt="Salida 2" />
-                <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <div class="card">
-                <span class="card-title">Separador</span>
-                <img src="media/separador.png" alt="Salida 3" />
-                <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <div class="card">
-                <span class="card-title">Todas las cintas</span>
-                <img src="media/cintas.png" alt="Salida 4" />
-                <label class="switch">
-                    <input type="checkbox" />
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </div>
+        <div class="telemetria-bar">
+    <div class="tele-card">
+        <span class="tele-title">Velocidad cinta</span>
+        <span class="tele-value" id="velocidadCinta">0.00</span>
+        <span class="tele-unit">m/s</span>
     </div>
 
-    <div id="overlay" onclick="toggleMenu()"></div> 
-    <script type="module" src="js/testing.js"></script>
-    <script src="js/navbar.js"></script>
-    
+    <div class="tele-card">
+        <span class="tele-title">Peso balanza</span>
+        <span class="tele-value" id="pesoBalanza">0.00</span>
+        <span class="tele-unit">kg</span>
+    </div>
+</div>
+        
+    </div>
+<script type="module" src="../js/testing.js"></script>
+<script src="../js/navbar.js"></script>
 </body>
 </html>

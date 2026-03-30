@@ -1,115 +1,155 @@
-const datos = [
-{
-lote:"2541",
-producto:"Cable A",
-marca:"Hitachi",
-elaboracion:"10/03/2026",
-vencimiento:"10/03/2027",
-productos:1200,
-cajas:60,
-pallets:3
-},
-{
-lote:"2542",
-producto:"Cable B",
-marca:"Hitachi",
-elaboracion:"11/03/2026",
-vencimiento:"11/03/2027",
-productos:900,
-cajas:45,
-pallets:2
+//    "content": [
+//        {
+//            "id": 1,
+//            "codigoLote": "1",
+//            "productoNombre": "Queso cremoso",
+//            "marcaNombre": "Tonutti",
+//            "fechaVencimiento": "2027-02-13",
+//            "fechaElaboracion": "2026-02-13",
+//            "mensajeHitachiDescripcion": "Msj Queso Cremoso",
+//            "etiquetaCajaDescripcion": "Etiqueta Pallet Queso cremoso",
+//            "etiquetaPalletDescripcion": null,
+//            "productosPorCaja": 10,
+//            "cajasPorPallet": 5,
+//            "imprimeMensajeHitachi": true,
+//            "imprimeEtiquetaCaja": true,
+//            "imprimeEtiquetaPallet": false,
+//            "utilizaBalanza": true,
+//            "pesoNetoProcesado": 0.0,
+//            "cantidadProductosProcesados": 0
+//        },
+//        {
+//            "id": 2,
+//            "codigoLote": "2",
+//            "productoNombre": "Queso cremoso",
+//            "marcaNombre": "Tonutti",
+//            "fechaVencimiento": "2027-02-13",
+//            "fechaElaboracion": "2026-02-13",
+//            "mensajeHitachiDescripcion": "Msj Queso Cremoso",
+//            "etiquetaCajaDescripcion": "Etiqueta Caja Queso cremoso",
+//            "etiquetaPalletDescripcion": null,
+//            "productosPorCaja": 1,
+//            "cajasPorPallet": 1,
+//            "imprimeMensajeHitachi": true,
+//            "imprimeEtiquetaCaja": true,
+//            "imprimeEtiquetaPallet": false,
+//            "utilizaBalanza": true,
+//            "pesoNetoProcesado": 0.0,
+//            "cantidadProductosProcesados": 0
+//        }
+//    ]
+let paginaActual;
+
+async function getReporteLotes(pagina, cantidadItems){
+
+
+    let url = "/api/reportes/lotes?page="+(pagina)+"&size="+cantidadItems
+    let filtros = armarStringFiltros();
+    const resp = await fetch(url + filtros);
+
+    if (!resp.ok) {
+        throw new Error("Error cargando reporte de lotes");
+    }
+
+    paginaActual = await resp.json();
 }
-]
 
-let paginaActual = 1
-let porPagina = 10
-let datosFiltrados = [...datos]
+async function renderTabla(pagina, cantidadItems){
 
-function renderTabla(){
+    await getReporteLotes(pagina, cantidadItems);
 
-const inicio = (paginaActual-1)*porPagina
-const fin = inicio + porPagina
+    const filas = document.getElementById("registrosTabla")
 
-const paginaDatos = datosFiltrados.slice(inicio,fin)
+    filas.innerHTML=""
 
-const body = document.getElementById("tablaBody")
-body.innerHTML=""
+    paginaActual.content.forEach(d=>{
 
-paginaDatos.forEach(d=>{
+        filas.innerHTML += `
+        <tr>
+        <td>${d.codigoLote}</td>
+        <td>${d.productoNombre}</td>
+        <td>${d.marcaNombre}</td>
+        <td>${d.fechaElaboracion}</td>
+        <td>${d.fechaVencimiento}</td>
+        <td>${d.cantidadProductosProcesados}</td>
+        <td>${(d.cantidadProductosProcesados / d.productosPorCaja)}</td>
+        <td>${(d.cantidadProductosProcesados / (d.productosPorCaja * d.cajasPorPallet))}</td>
+        <td>${d.pesoNetoProcesado}</td>
+        </tr>
+        `
+    })
 
-body.innerHTML += `
-<tr>
-<td>${d.lote}</td>
-<td>${d.producto}</td>
-<td>${d.marca}</td>
-<td>${d.elaboracion}</td>
-<td>${d.vencimiento}</td>
-<td>${d.productos}</td>
-<td>${d.cajas}</td>
-<td>${d.pallets}</td>
-</tr>
-`
-})
-
-document.getElementById("pagina").innerText =
-`Página ${paginaActual} de ${Math.ceil(datosFiltrados.length/porPagina)}`
+    document.getElementById("pagina").innerText =
+    `Página ${paginaActual.pageable.pageNumber + 1} de ${paginaActual.totalPages}`
 }
 
 function anterior(){
+    const numeroPagina = paginaActual.pageable.pageNumber
 
-if(paginaActual>1){
-paginaActual--
-renderTabla()
-}
-
+    if(numeroPagina >0){
+        renderTabla((numeroPagina - 1), document.getElementById("itemsPorPagina").value)
+    }
 }
 
 function siguiente(){
+    const numeroPagina = paginaActual.pageable.pageNumber
 
-if(paginaActual < Math.ceil(datosFiltrados.length/porPagina)){
-paginaActual++
-renderTabla()
+    if(paginaActual.last === false){
+        renderTabla((numeroPagina + 1), document.getElementById("itemsPorPagina").value)
+    }
 }
 
+function armarStringFiltros(){
+    const codigoLote = document.getElementById("codigoLote").value;
+    const fechaElaboracionDesde = document.getElementById("fechaElaboracionDesde").value;
+    const fechaElaboracionHasta = document.getElementById("fechaElaboracionHasta").value;
+
+    if(codigoLote || fechaElaboracionDesde || fechaElaboracionHasta){
+        let filtro = "&filter="
+        if(codigoLote){
+            filtro += `codigoLote=${codigoLote}`
+        }
+        if(fechaElaboracionDesde){
+            filtro += `fechaElaboracion>=${fechaElaboracionDesde}`
+        }
+        if(fechaElaboracionHasta){
+            filtro += `fechaElaboracion<=${fechaElaboracionHasta}`
+        }
+        console.log("Filtros aplicados: " + filtro)
+        return filtro
+    }
+    else
+        return ""
 }
 
-function filtrar(){
+function cambiarCantidadItems(){
+    itemsPorPagina = parseInt(document.getElementById("itemsPorPagina").value)
 
-const lote = document.getElementById("buscarLote").value
-
-datosFiltrados = datos.filter(d=> d.lote.includes(lote))
-
-paginaActual = 1
-renderTabla()
-
-}
-
-function cambiarItems(){
-
-porPagina = parseInt(document.getElementById("itemsPagina").value)
-
-paginaActual = 1
-
-renderTabla()
-
+    renderTabla(0, itemsPorPagina)
 }
 
 function exportarExcel(){
 
-let csv="Lote,Producto,Marca,Elaboracion,Vencimiento,Productos,Cajas,Pallets\n"
+    let csv="Lote,Producto,Marca,Elaboracion,Vencimiento,Productos,Cajas,Pallets\n"
 
-datosFiltrados.forEach(d=>{
-csv += `${d.lote},${d.producto},${d.marca},${d.elaboracion},${d.vencimiento},${d.productos},${d.cajas},${d.pallets}\n`
-})
+    datosFiltrados.forEach(d=>{
+        csv += `${d.lote},${d.producto},${d.marca},${d.elaboracion},${d.vencimiento},${d.productos},${d.cajas},${d.pallets}\n`
+    })
 
-const blob = new Blob([csv],{type:"text/csv"})
-const url = window.URL.createObjectURL(blob)
+    const blob = new Blob([csv],{type:"text/csv"})
+    const url = window.URL.createObjectURL(blob)
 
-const a = document.createElement("a")
-a.href = url
-a.download = "reporte_produccion.csv"
-a.click()
-
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "reporte_produccion.csv"
+    a.click()
 }
 
-renderTabla()
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("itemsPorPagina").addEventListener("change", cambiarCantidadItems);
+    document.getElementById("anterior").addEventListener("click", anterior);
+    document.getElementById("siguiente").addEventListener("click", siguiente);
+    document.getElementById("filtrar").addEventListener("click", () => renderTabla(0 , document.getElementById("itemsPorPagina").value));
+    //document.getElementById("exportarExcel").addEventListener("click", exportarExcel);
+    renderTabla(0 , document.getElementById("itemsPorPagina").value);
+});

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>ABM de Marcas</title>
-    <link rel="stylesheet" href="css/marcas.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="../css/marcas.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
 
@@ -13,21 +13,27 @@
     <h2>ABM de Marcas</h2>
 
     <div class="form-group">
+        <label for="marcaId">Marca</label>
+        <select id="marcaId">
+            <option value="">--Seleccione--</option>
+        </select>
+    </div>
+
+    <div class="form-group">
         <label for="nombre">Nombre de la marca</label>
         <input type="text" id="nombre" class="input-text" placeholder="Ej: Hitachi">
     </div>
 
     <div class="form-group checkbox-line">
-        <input type="checkbox" id="habilitada">
         <label for="habilitada">Habilitada</label>
+        <input type="checkbox" id="habilitada">
     </div>
 
     <button id="btnGuardar">Guardar</button>
 </div>
 
-<div id="overlay" onclick="toggleMenu()"></div> 
-<script src="js/marcas.js"></script>
-<script src="js/navbar.js"></script>
+<script type="module"  src="../js/marcas.js"></script>
+<script src="../js/navbar.js"></script>
 
 </body>
 </html>

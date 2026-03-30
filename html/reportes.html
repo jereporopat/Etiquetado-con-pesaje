@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Lista de Producción</title>
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/navbar.css">
-<link rel="stylesheet" href="../css/reportes.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Producción</title>
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../css/reportes.css">
+    </head>
 
-<body>
+    <body>
 
-<div class="reporte-container">
+        <div class="reporte-container">
+            <h2>Reporte de Producción</h2>
 
-<h2>Reporte de Producción</h2>
+            <div class="acciones">
+                <label for="codigoLote">Código</label><input type="text" id="codigoLote">
+                <label for="fechaElaboracionDesde">Desde</label><input type="date" id="fechaElaboracionDesde">
+                <label for="fechaElaboracionHasta">Hasta</label><input type="date" id="fechaElaboracionHasta">
 
-<div class="acciones">
+                <button id="filtrar">Buscar</button>
+<!--                <button id="exportarExcel">Exportar Excel</button>-->
 
-<input type="text" id="buscarLote" placeholder="Buscar por lote">
+                <div class="selector">
+                    Mostrar
+                    <select id="itemsPorPagina">
+                        <option value="5" selected>5</option>
+                        <option value="10" >10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                    registros
+                </div>
+            </div>
 
-<button onclick="filtrar()">Buscar</button>
-<button onclick="exportarExcel()">Exportar Excel</button>
+            <table id="tablaReportes">
 
-<div class="selector">
-Mostrar
-<select id="itemsPagina" onchange="cambiarItems()">
-<option value="5">5</option>
-<option value="10" selected>10</option>
-<option value="15">15</option>
-<option value="20">20</option>
-</select>
-registros
-</div>
+            <thead>
+                <tr>
+                    <th>Lote</th>
+                    <th>Producto</th>
+                    <th>Marca</th>
+                    <th>Elaboración</th>
+                    <th>Vencimiento</th>
+                    <th>Productos</th>
+                    <th>Cajas</th>
+                    <th>Pallets</th>
+                    <th>Peso neto</th>
+                </tr>
+            </thead>
 
-</div>
+            <tbody id="registrosTabla"></tbody>
 
-<table id="tablaReportes">
+            </table>
 
-<thead>
-<tr>
-<th>Lote</th>
-<th>Producto</th>
-<th>Marca</th>
-<th>Elaboración</th>
-<th>Vencimiento</th>
-<th>Productos</th>
-<th>Cajas</th>
-<th>Pallets</th>
-</tr>
-</thead>
+            <div class="paginacion">
+                <button id="anterior">Anterior</button>
+                <span id="pagina"></span>
+                <button id="siguiente">Siguiente</button>
+            </div>
+        </div>
 
-<tbody id="tablaBody"></tbody>
+        <script src="../js/navbar.js"></script>
+        <script src="../js/reportes.js"></script>
 
-</table>
-
-<div class="paginacion">
-<button onclick="anterior()">Anterior</button>
-<span id="pagina"></span>
-<button onclick="siguiente()">Siguiente</button>
-</div>
-
-</div>
-
-<div id="overlay" onclick="toggleMenu()"></div> 
-<script src="../js/navbar.js"></script>
-<script src="../js/reportes.js"></script>
-
-</body>
+    </body>
 </html>

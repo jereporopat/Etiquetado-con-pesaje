@@ -52,6 +52,16 @@
   cursor: pointer;
 }
 
+/* HITBOX MÁS GRANDE (invisible) */
+.menu-handle::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -15px;
+  right: -15px;
+}
+
 .menu-handle:hover {
   height: 200px;
   background: white;
@@ -84,4 +94,68 @@
 }
 .side-menu.open {
   box-shadow: 6px 0 22px rgba(0,0,0,0.45);
+}
+.nav-config {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
+  padding: 0 0px;
+}
+
+/* BOTÓN confg */
+.config-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.config-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+/* MENÚ FLOTANTE */
+.config-menu {
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+
+  display: none;
+  flex-direction: column;
+
+  background: #1b4f72;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 180px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.config-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.config-menu a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.config-menu.active {
+  display: flex;
 }
